@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>prediction</title>
 </head>
 
 <body>
@@ -18,36 +18,39 @@
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="display-4 fw-normal">Prediction</h1>
             <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this
-                Bootstrap example.</p>
+                Bootstrap example.</p><br>
+            <h4><b>{{prediction_text}}</b></h4><br>
         </div>
-        <form action="">
+        
+        <a class="btn btn-primary btn-lg" href="/" role="button">Back</a><br><br>
+        <form action="/prediction" method="POST">
             <div class="row">
                 <div class="col">
                     <input type="text" id="age" name="age" class="form-control" placeholder="Enter age" aria-label="Enter age">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    <input type="text" id="last_login" name="last_login" class="form-control" placeholder="Days since last login" aria-label="Days since last login">
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    <input type="text" id="avg_time_spent" name="avg_time_spent" class="form-control" placeholder="Average time spent" aria-label="Average time spent">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    <input type="text" id="avg_transaction_value" name="avg_transaction_value" class="form-control" placeholder="Average transaction value" aria-label="Average transaction value">
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    <input type="text" id="points_in_wallet" name="points_in_wallet" class="form-control" placeholder="Points in wallet" aria-label="Points in wallet">
+                </div>
+                <div class="col">
+                    <input type="text" id="date" name="date" class="form-control" placeholder="Enter Date (YYYY-MM-DD)" aria-label="Enter Date (YYYY-MM-DD)">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="time" name="time" class="form-control" placeholder="Enter time (HH:MM:SS)" aria-label="Enter time (HH:MM:SS)">
                 </div>
                 <div class="col">
                     <select class="form-select" id="gender" name="gender" aria-label="Default select example">
@@ -59,96 +62,104 @@
             </div><br>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="region_category" name="region_category" aria-label="Default select example">
+                        <option value="Unknown" selected>--select region_category--</option>
+                        <option value="Town">Town</option>
+                        <option value="City">City</option>
+                        <option value="Village">Village</option>
                       </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="membership_category" name="membership_category" aria-label="Default select example">
+                        <option value="Unknown" selected>--select membership_category--</option>
+                        <option value="Basic Membership">Basic Membership</option>
+                        <option value="No Membership">No Membership</option>
+                        <option value="Gold Membership">Gold Membership</option>
+                        <option value="Platinum Membership">Platinum Membership</option>
+                        <option value="Silver Membership">Silver Membership</option>
+                        <option value="Premium Membership">Premium Membership</option>
                       </select>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="joined_through_referral" name="joined_through_referral" aria-label="Default select example">
+                        <option value="Unknown" selected>--select joined_through_referral--</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
                       </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="preferred_offer_types" name="preferred_offer_types" aria-label="Default select example">
+                        <option value="Unknown" selected>--select preferred_offer_types--</option>
+                        <option value="Gift Vouchers/Coupons">Gift Vouchers/Coupons</option>
+                        <option value="Credit/Debit Card Offers">Credit/Debit Card Offers</option>
+                        <option value="Without Offers">Without Offers</option>
                       </select>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="medium_of_operation" name="medium_of_operation" aria-label="Default select example">
+                        <option value="Unknown" selected>--select medium_of_operation--</option>
+                        <option value="Desktop">Desktop</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="Both">Both</option>
                       </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="internet_option" name="internet_option" aria-label="Default select example">
+                        <option value="Unknown" selected>--select internet_option--</option>
+                        <option value="Wi-Fi">Wi-Fi</option>
+                        <option value="Mobile_Data">Mobile_Data</option>
+                        <option value="Fiber_Optic">Fiber_Optic</option>
                       </select>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="used_special_discount" name="used_special_discount" aria-label="Default select example">
+                        <option value="Unknown" selected>--select used_special_discount--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                       </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="offer_application_preference" name="offer_application_preference" aria-label="Default select example">
+                        <option value="Unknown" selected>--select offer_application_preference--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                       </select>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="past_complaint" name="past_complaint" aria-label="Default select example">
+                        <option value="Unknown" selected>--select past_complaint--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                       </select>
                 </div>
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="feedback" name="feedback" aria-label="Default select example">
+                        <option value="Unknown" selected>--select feedback--</option>
+                        <option value="Poor Product Quality">Poor Product Quality</option>
+                        <option value="No reason specified">No reason specified</option>
+                        <option value="Too many ads">Too many ads</option>
+                        <option value="Poor Website">Poor Website</option>
+                        <option value="Poor Customer Service">Poor Customer Service</option>
+                        <option value="Reasonable Price">Reasonable Price</option>
+                        <option value="User Friendly Website">User Friendly Website</option>
+                        <option value="Products always in Stock">Products always in Stock</option>
+                        <option value="Quality Customer Care">Quality Customer Care</option>
                       </select>
                 </div>
             </div><br>
-            <button  type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <div class="text-center">
+                <button  type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form><br><br><br><br><br>
+
     </div>
 
 
