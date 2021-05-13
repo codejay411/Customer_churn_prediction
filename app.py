@@ -4,10 +4,10 @@ import numpy as np
 import xgboost as xgb
 
 import pickle
-# model = pickle.load(open('xgboost_model.pkl', 'rb'))
+model = pickle.load(open('xgboost_model.pkl', 'rb'))
 
-model = xgb.Booster()
-model.load_model("model.txt")
+# model = xgb.Booster()
+# model.load_model("model.txt")
 
 app = Flask(__name__)
 
